@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+ .fa-star {
+  color:  #FFD700;
+}
+
+.review-rating {
+  cursor:    pointer;
+  font-size: 2rem;
+}

@@ -6,13 +6,17 @@
 
 <%= link_to "Soumettre un avis positif", new_restaurant_review_path(@restaurant) %>
 
-<h2>Avis</h2>
-<ul class="list-group">
+<div class="reviews">
+  <h2>Avis</h2>
   <% @restaurant.reviews.each do |review| %>
-    <li class="list-group-item"><%= review.rating %></li>
-    <li class="list-group-item"><%= review.content %></li>
+    <p>
+      <% Review::AUTHORIZED_RATINGS.each do |number| %>
+        <i class="fa<%= (number > review.rating) ? 'r' : 's' %> fa-star"></i>
+      <% end %>
+      <%= review.content %>
+    </p>
   <% end %>
-</ul>
+</div>
 <br>
 
 <%= link_to "Retour a la liste des restaurants", restaurants_path %>
