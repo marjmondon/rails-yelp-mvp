@@ -15,4 +15,11 @@
   restaurant.save
 end
 
-# Faker::TvShows::Friends.quote
+60.times do
+  review = Review.new(
+    rating: rand(1..5),
+    content: Faker::TvShows::Friends.quote,
+    restaurant_id: rand(1..10)
+  )
+  review.save
+end
